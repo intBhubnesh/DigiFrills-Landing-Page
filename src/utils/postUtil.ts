@@ -3,6 +3,6 @@ export const getPostColorFromCategory = (category: string) => {
         case "Innovation": return 'cyan';
         case 'Security' : return 'violet';
         case 'Sustainability' : return 'lime';
-        default: return 'fuchsia';
+        default: return 'blue';
     }
 }

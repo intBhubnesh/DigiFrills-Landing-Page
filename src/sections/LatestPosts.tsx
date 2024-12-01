@@ -4,12 +4,24 @@ import { Tag } from "../components/Tag"
 import { getPostColorFromCategory } from "../utils/postUtil"
 import { CutCornerButton } from "../components/CutCornerButton"
 import { twMerge } from "tailwind-merge"
+import { useRef } from "react"
+import { useScroll, useTransform, motion } from "framer-motion"
 
 
 export const LatestPost = (props: {
+
     latestPost: CollectionEntry<'blog'>[];
 }) => {
     const { latestPost } = props;
+
+    const leftColRef = useRef(null)
+    const { scrollYProgress } = useScroll({
+        target : leftColRef,
+        offset : ['start end', 'end center']
+    })
+
+    const topMargin = useTransform(scrollYProgress, [0,1], [0, 64])
+
     return <section className="py-60 ">
         {/* container */}
         <div className="container  ">
@@ -30,7 +42,11 @@ export const LatestPost = (props: {
                     ))}
                 </div>
                 {/* post col 2 */}
-                <div className="col-span-1 hidden md:flex flex-col gap-8 md:mt-16">
+                <motion.div className="col-span-1 hidden md:flex flex-col gap-8 md:mt-16" ref={leftColRef}
+                style={{
+                    margin : 0,
+                    translateY : topMargin
+                }}>
                     {latestPost.map(({ data: { title, description, category } }, postIndex) => (
                         <Card className={twMerge('group', (postIndex % 2 == 0) && 'hidden')} key={postIndex} buttonString="Read More" color={getPostColorFromCategory(category)}>
                             <Tag tag={category} color={getPostColorFromCategory(category)} />
@@ -38,7 +54,7 @@ export const LatestPost = (props: {
                             <p className="text-lg text-zinc-400 mt-6">{description}</p>
                         </Card>
                     ))}
-                </div>
+                </motion.div>
             </div>
             {/* button */}
             <div className="flex justify-center mt-48 md:mt-32">

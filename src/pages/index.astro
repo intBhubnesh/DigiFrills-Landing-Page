@@ -16,19 +16,19 @@ import { FooterSection } from '../sections/Footer'
 const post = await getCollection('blog')
 
 // sort function need to return { -1,0,1 }, ony one of the value
-const latestPost = post.sort((a,b) => {
+const latestPost = post.sort((a , b) => {
     if(a.data.pubDate.valueOf() === b.data.pubDate.valueOf()) return 0;
     else return a.data.pubDate.valueOf() > b.data.pubDate.valueOf() ? -1 : 1;
 }).slice(0,4)
 ---
 
 <DefaultLayout>
-    <HeaderSection />
-    <HeroSection />
-    <FeaturesCards />
-    <FeaturesGrid />
-    <LatestPost latestPost={latestPost} />
-    <TestimonialSection />
-    <CallToAction />
+    <HeaderSection  />
+    <HeroSection client:load/>
+    <FeaturesCards client:load/>
+    <FeaturesGrid client:load/>
+    <LatestPost latestPost={latestPost} client:load/>
+    <TestimonialSection client:load/>
+    <CallToAction client:load/>
     <FooterSection />
 </DefaultLayout>
