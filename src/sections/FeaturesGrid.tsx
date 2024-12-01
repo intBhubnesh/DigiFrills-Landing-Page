@@ -1,5 +1,7 @@
+import { useRef } from "react"
 import { Button } from "../components/Button"
 import { CutCornerButton } from "../components/CutCornerButton"
+import { motion, useScroll, useTransform } from "framer-motion"
 
 const listItems = [
     'Experience unparalleled scurity and scalability',
@@ -8,6 +10,40 @@ const listItems = [
 ]
 
 export const FeaturesGrid = () => {
+    const torusKnotRef = useRef(null)
+    const firstHemisphereRef = useRef(null)
+    const {scrollYProgress : torusKnotScrollProgress} = useScroll({
+        target: torusKnotRef,
+        offset: ['start end', 'end start'],
+    })
+    const torusKnotTranslateY = useTransform(torusKnotScrollProgress, [0,1], [100, -100])
+    const torusKnotRotate = useTransform(torusKnotScrollProgress, [0,1], [30, -30])
+
+    const {scrollYProgress : firstHemisphereScrollProgress} = useScroll({
+        target : firstHemisphereRef,
+        offset : ['start end', 'end start']
+    })
+    const firstHemisphereTranslateY = useTransform(firstHemisphereScrollProgress, [0, 1], [50, -50])
+    const firstHemisphereRotate = useTransform(firstHemisphereScrollProgress, [0, 1], [-20, -50])
+
+    const coneRef = useRef(null)
+    const secoundHemisphereRef = useRef(null)
+    const {scrollYProgress : coneScrollProgress} = useScroll({
+        target: coneRef,
+        offset: ['start end', 'end start'],
+    })
+    const coneTranslateY = useTransform(coneScrollProgress, [0, 1], [100, -100])
+    const coneRotate = useTransform(coneScrollProgress, [0, 1], [12, 45])
+
+    const {scrollYProgress : secoundHemisphereScrollProgress} = useScroll({
+        target: secoundHemisphereRef,
+        offset: ['start end', 'end start'],
+    })
+    const secoundHemisphereTranslateY = useTransform(secoundHemisphereScrollProgress, [0, 1], [50, -50])
+    const secoundHemisphereRotate = useTransform(secoundHemisphereScrollProgress, [0, 1], [-20, 10])
+
+
+
     return <section className="py-24 overflow-x-clip">
         <div className="container">
             {/* flex-col wrapper */}
@@ -22,8 +58,8 @@ export const FeaturesGrid = () => {
                             {listItems.map((item) => (
 
                                 <li key={item} className="flex items-center gap-3">
-                                    <div className="inline-flex size-8 flex-shrink-0 outline outline-4 justify-center items-center  -outline-offset-4 outline-fuchsia-500/10 rounded-full">
-                                        <div className="size-[6px] bg-fuchsia-500 rounded-full"></div>
+                                    <div className="inline-flex size-8 flex-shrink-0 outline outline-4 justify-center items-center  -outline-offset-4 outline-blue-500/10 rounded-full">
+                                        <div className="size-[6px] bg-blue-500 rounded-full"></div>
                                     </div>
                                     <span className="text-xl font-bold ">
                                         {item}
@@ -40,9 +76,27 @@ export const FeaturesGrid = () => {
                     <div className="hidden md:block col-span-1">
                         {/* position wrapper */}
                         <div className="relative z-0">
-                            <img src="/assets/images/torus-knot.png" alt="torus-knot image" className="size-96 max-w-none" />
-                            <img src="/assets/images/hemisphere.png" alt="hemisphere image" className="size-96
-                            max-w-none absolute top-3/4  scale-x-[-1] -z-10" />
+                            <motion.img
+                            ref={torusKnotRef}
+                            src="/assets/images/torus-knot.png"
+                            alt="torus-knot image"
+                            className="size-96 max-w-none"
+                            style={{
+                                translateY : torusKnotTranslateY,
+                                rotate : torusKnotRotate
+                            }}
+                            />
+                            <motion.img
+                            ref={firstHemisphereRef}
+                            src="/assets/images/hemisphere.png"
+                            alt="hemisphere image"
+                            className="size-96
+                            max-w-none absolute top-3/4  scale-x-[-1] -z-10"
+                            style={{
+                                translateY : firstHemisphereTranslateY,
+                                rotate : firstHemisphereRotate
+                            }}
+                            />
                         </div>
                     </div>
                 </div>
@@ -50,9 +104,19 @@ export const FeaturesGrid = () => {
                     <div className="relative col-span-1 ">
                         {/* position wrapper */}
                         <div className="hidden  md:block absolute right-0 z-0 ">
-                            <img src="/assets/images/cone.png" alt="cone image" className="size-96 max-w-none rotate-12" />
-                            <img src="/assets/images/hemisphere.png" alt="hemisphere image" className="size-96
-                            max-w-none absolute top-3/4  -z-10" />
+                            <motion.img ref={coneRef} src="/assets/images/cone.png" alt="cone image" className="size-96 max-w-none rotate-12"
+                            style={{
+                                translateY : coneTranslateY,
+                                rotate : coneRotate
+                            }}
+
+                            />
+                            <motion.img ref={secoundHemisphereRef} src="/assets/images/hemisphere.png" alt="hemisphere image" className="size-96
+                            max-w-none absolute top-3/4  -z-10"
+                            style={{
+                                translateY : secoundHemisphereTranslateY,
+                                rotate : secoundHemisphereRotate
+                            }}/>
                         </div>
                     </div>
                 {/* FeaturesGrid para */}
