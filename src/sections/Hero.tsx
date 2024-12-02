@@ -3,7 +3,7 @@ import { Hexagon } from "../components/Hexagon"
 import { Circle } from "../components/Circle"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
-
+import { SplineGlobe } from "../components/SplineGlobe"
 export const HeroSection = () => {
 
     // take the reference of the scroll-animation elements
@@ -102,11 +102,13 @@ export const HeroSection = () => {
                     <motion.div
                         ref={isosahedronRef}
                         style={{
-                            rotate: isosahedronRotate,
+                            // rotate: isosahedronRotate,
                         }}
-                        className="inline-flex -my-16 h-[500px]">
-                        <img src="../assets/images/icosahedron.png" alt="" className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%+100px)] max-w-none saturate-[10%] brightness-[4%] hue-rotate-[240deg] blur-lg" />
-                        <img src="../assets/images/icosahedron.png" alt="isosahedron" />
+                        className="inline-flex -my-40 size-[500px] -z-10 md:size-[750px]">
+                        {/* <img src="../assets/images/icosahedron.png" alt="" className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%+100px)] max-w-none saturate-[10%] brightness-[4%] hue-rotate-[240deg] blur-lg" />
+                        <img src="../assets/images/icosahedron.png" alt="isosahedron" /> */}
+                        < SplineGlobe />
+                        <div className="absolute bg-zinc-900  h-[60px] w-[120px] -bottom-40 right-8 "></div>
                     </motion.div>
                 </div>
             </div>
