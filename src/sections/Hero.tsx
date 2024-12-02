@@ -104,8 +104,8 @@ export const HeroSection = () => {
                         style={{
                             rotate: isosahedronRotate,
                         }}
-                        className="inline-flex -my-16 size-[700px]">
-                        <img src="../assets/images/icosahedron.png" alt="" className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%+100px)] max-w-none saturate-[10%] brightness-[4%] hue-rotate-[240deg] " />
+                        className="inline-flex -my-16 h-[500px]">
+                        <img src="../assets/images/icosahedron.png" alt="" className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%+100px)] max-w-none saturate-[10%] brightness-[4%] hue-rotate-[240deg] blur-lg" />
                         <img src="../assets/images/icosahedron.png" alt="isosahedron" />
                     </motion.div>
                 </div>

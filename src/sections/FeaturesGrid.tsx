@@ -86,7 +86,7 @@ export const FeaturesGrid = () => {
                                 rotate : torusKnotRotate
                             }}
                             />
-                            <motion.img
+                            {/* <motion.img
                             ref={firstHemisphereRef}
                             src="/assets/images/hemisphere.png"
                             alt="hemisphere image"
@@ -96,23 +96,23 @@ export const FeaturesGrid = () => {
                                 translateY : firstHemisphereTranslateY,
                                 rotate : firstHemisphereRotate
                             }}
-                            />
+                            /> */}
                         </div>
                     </div>
                 </div>
                 <div className=" md:grid grid-cols-3 gap-8">
                     <div className="relative col-span-1 ">
                         {/* position wrapper */}
-                        <div className="hidden  md:block absolute right-0 z-0 ">
-                            <motion.img ref={coneRef} src="/assets/images/cone.png" alt="cone image" className="size-96 max-w-none rotate-12"
+                        <div className="hidden   md:block absolute right-0 z-0 ">
+                            {/* <motion.img ref={coneRef} src="/assets/images/cone.png" alt="cone image" className="size-96 max-w-none rotate-12"
                             style={{
                                 translateY : coneTranslateY,
                                 rotate : coneRotate
                             }}
-
-                            />
+// absolute top-3/4
+                            /> */}
                             <motion.img ref={secoundHemisphereRef} src="/assets/images/hemisphere.png" alt="hemisphere image" className="size-96
-                            max-w-none absolute top-3/4  -z-10"
+                            max-w-none   -z-10"
                             style={{
                                 translateY : secoundHemisphereTranslateY,
                                 rotate : secoundHemisphereRotate
