@@ -2,6 +2,9 @@ import { useRef } from "react"
 import { Button } from "../components/Button"
 import { CutCornerButton } from "../components/CutCornerButton"
 import { motion, useScroll, useTransform } from "framer-motion"
+import { SplineCube } from "../components/SplineCube"
+import { SplineCore } from "../components/SplineCore"
+
 
 const listItems = [
     'Experience unparalleled scurity and scalability',
@@ -76,7 +79,7 @@ export const FeaturesGrid = () => {
                     <div className="hidden md:block col-span-1">
                         {/* position wrapper */}
                         <div className="relative z-0">
-                            <motion.img
+                            {/* <motion.img
                             ref={torusKnotRef}
                             src="/assets/images/torus-knot.png"
                             alt="torus-knot image"
@@ -85,7 +88,11 @@ export const FeaturesGrid = () => {
                                 translateY : torusKnotTranslateY,
                                 rotate : torusKnotRotate
                             }}
-                            />
+                            /> */}
+                            <div className="size-[600px] -mx-32 max-w-none">
+                        <div className="absolute bg-zinc-900  h-[60px] w-[140px] -bottom-0 -right-36  "></div>
+                            < SplineCube />
+                            </div>
                             {/* <motion.img
                             ref={firstHemisphereRef}
                             src="/assets/images/hemisphere.png"
@@ -95,8 +102,8 @@ export const FeaturesGrid = () => {
                             style={{
                                 translateY : firstHemisphereTranslateY,
                                 rotate : firstHemisphereRotate
-                            }}
-                            /> */}
+                                }}
+                                /> */}
                         </div>
                     </div>
                 </div>
@@ -104,6 +111,10 @@ export const FeaturesGrid = () => {
                     <div className="relative col-span-1 ">
                         {/* position wrapper */}
                         <div className="hidden   md:block absolute right-0 z-0 ">
+                            <div className="size-[600px] -mx-16 -my-20 max-w-none">
+                                 <div className="absolute bg-zinc-900  h-[60px] w-[140px] -bottom-20 -right-12  "></div>
+                            < SplineCore />
+                            </div>
                             {/* <motion.img ref={coneRef} src="/assets/images/cone.png" alt="cone image" className="size-96 max-w-none rotate-12"
                             style={{
                                 translateY : coneTranslateY,
@@ -111,12 +122,13 @@ export const FeaturesGrid = () => {
                             }}
 // absolute top-3/4
                             /> */}
-                            <motion.img ref={secoundHemisphereRef} src="/assets/images/hemisphere.png" alt="hemisphere image" className="size-96
+                            {/* <motion.img ref={secoundHemisphereRef} src="/assets/images/hemisphere.png" alt="hemisphere image" className="size-96
                             max-w-none   -z-10"
                             style={{
                                 translateY : secoundHemisphereTranslateY,
                                 rotate : secoundHemisphereRotate
-                            }}/>
+                            }}/> */}
+
                         </div>
                     </div>
                 {/* FeaturesGrid para */}
