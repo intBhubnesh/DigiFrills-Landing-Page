@@ -19,7 +19,7 @@ export const CallToAction = () => {
                         <img src="../../assets/images/cuboid.png" alt="cuboid image" className="h-[140px]" />
                     </Circle>
                     <Circle className="absolute -top-[70px] -left-[600px]" isAnimate>
-                        <img src='../../assets/images/cylinder.png' alt="cylinde image" className="h-[240px]" />
+                        <img src='../../assets/images/cylinder.png' alt="cylinde image" className="h-[180px]" />
                     </Circle>
                 </div>
                 <h1 className="font-black text-center text-4xl md:text-5xl lg:text-6xl font-heading ">Ready to <span className="block">get started?</span></h1>
